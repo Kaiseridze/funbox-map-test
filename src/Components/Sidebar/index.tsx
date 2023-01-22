@@ -32,16 +32,18 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <h1 className="sidebar__title">Добавьте новую точку</h1>
-      <form className="sidebar__form" onSubmit={onSubmit}>
+      <form className="sidebar-form" onSubmit={onSubmit}>
         <Input onChange={onChangeValue} value={text} />
-        {roads.map((road) => (
-          <RoadMap
-            onClick={() => onRemove(road.id)}
-            id={road.id}
-            key={road.id}
-            title={road.title}
-          />
-        ))}
+        <ul className="sidebar-list">
+          {roads.map((road) => (
+            <RoadMap
+              onClick={() => onRemove(road.id)}
+              id={road.id}
+              key={road.id}
+              title={road.title}
+            />
+          ))}
+        </ul>
       </form>
     </div>
   );
