@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  margin: 0 auto;
+
+  &.l {
+    max-width: 1440px;
+    padding: 20px;
+  }
+  &.m {
+    max-width: 1170px;
+    padding: 15px;
+  }
+  &.s {
+    max-width: 768px;
+    padding: 10px;
+  }
+}
