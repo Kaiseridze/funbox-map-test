@@ -1,0 +1,16 @@
+.road-map {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  &__title {
+    display: block;
+    text-align: center;
+  }
+  &__remove{
+    cursor: pointer;
+  }
+}

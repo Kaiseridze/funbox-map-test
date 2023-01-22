@@ -1,7 +1,8 @@
-import React from "react";
+import { FC } from "react";
+import { IInput } from "./Input.types";
 import "./Input.styles.scss";
-const Input = () => {
-  return <input className="input" type="text" />;
+const Input: FC<IInput> = ({ value, onChange }) => {
+  return <input onChange={onChange} value={value} className="input" type="text" />;
 };
 
 export default Input;
