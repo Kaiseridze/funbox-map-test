@@ -14,14 +14,16 @@ const Sidebar = () => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setRoads([
-      ...roads,
-      {
-        title: text,
-        id: id(),
-      },
-    ]);
-    setText("");
+    if (text.length) {
+      setRoads([
+        ...roads,
+        {
+          title: text,
+          id: id(),
+        },
+      ]);
+      setText("");
+    }
   };
 
   const onRemove = (id: string) => {
