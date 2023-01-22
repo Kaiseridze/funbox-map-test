@@ -8,7 +8,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <h1 className="sidebar__title">Добавьте новую точку</h1>
-      <form onSubmit={onSubmit}>
+      <form className="sidebar__form" onSubmit={onSubmit}>
         <Input />
       </form>
     </div>
