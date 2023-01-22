@@ -1,6 +1,14 @@
 .sidebar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
     border: 1px solid rgb(43, 43, 43);
     padding: 20px;
-    max-width: 200px;
+    max-width: 300px;
     height: calc(100vh - 70px);
+
+    &__title{
+        font-size: 16px;
+        font-weight: 600;
+    }
 }
