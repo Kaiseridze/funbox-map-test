@@ -1,6 +1,9 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import placemarkSlice from "./Reducers/placemarkSlice";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  placemarks: placemarkSlice,
+});
 
 export const setupStore = () => {
   return configureStore({
