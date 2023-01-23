@@ -12,13 +12,11 @@ const placemarkSlice = createSlice({
     addPlacemark(state, action: PayloadAction<IPlacemark>) {
       state.placemarks.push(action.payload);
     },
-    removePlaceMark(state, action) {
-      state.placemarks = state.placemarks.filter(
-        (placemark) => placemark.id !== action.payload.id
-      );
+    removePlacemark(state, action) {
+      state.placemarks = state.placemarks.filter((placemark) => placemark.id !== action.payload)
     },
   },
 });
 
-export const { addPlacemark } = placemarkSlice.actions;
+export const { addPlacemark, removePlacemark } = placemarkSlice.actions;
 export default placemarkSlice.reducer;

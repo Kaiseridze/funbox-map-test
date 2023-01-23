@@ -2,14 +2,14 @@ import React, { useState } from "react";
 
 import { Input } from "../../UI";
 import { RoadMap } from "../../Entities";
-import { IRoadMap } from "../../Entities/RoadMap/RoadMap.types";
 
 import { useAppDispatch } from "../../Store/Hooks/useAppDispatch";
 import { useAppSelector } from "../../Store/Hooks/useAppSelector";
+import { addPlacemark, removePlacemark } from "../../Store/Reducers/placemarkSlice";
 
 import id from "../../Helpers/IdGenerator";
 import "./Sidebar.styles.scss";
-import { addPlacemark } from "../../Store/Reducers/placemarkSlice";
+
 
 const Sidebar = () => {
   const dispatch = useAppDispatch();
@@ -34,6 +34,10 @@ const Sidebar = () => {
     }
   };
 
+  const onRemove = (id: string) => {
+    dispatch(removePlacemark(id))
+  }
+
   return (
     <div className="sidebar">
       <h1 className="sidebar__title">Добавьте новую точку</h1>
@@ -41,7 +45,7 @@ const Sidebar = () => {
         <Input onChange={onChangeValue} value={title} />
         <ul className="sidebar-list">
           {placemarks.map((road) => (
-            <RoadMap id={road.id} key={road.id} title={road.title} />
+            <RoadMap onClick={() => onRemove(road.id)} id={road.id} key={road.id} title={road.title} />
           ))}
         </ul>
       </form>
