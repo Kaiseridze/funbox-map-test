@@ -16,14 +16,6 @@ const Home = () => {
     setMapCenter(newCenter);
   };
 
-  // function handlePointDrag(evt: MapEvent, index: number) {
-  //   const pointsArr = Array.from(points);
-  //   const newCoords = evt.get('target').geometry.getCoordinates();
-
-  //   pointsArr[index].point = newCoords;
-  //   setPoints(pointsArr);
-  // }
-
   return (
     <Container variant="m">
       <Sidebar mapCenter={mapCenter} />
@@ -45,7 +37,12 @@ const Home = () => {
                 draggable: true,
                 hasBalloon: true,
               }}
+              properties={{
+                hintContent: placemark.title,
+                balloonContent: placemark.title,
+              }}
               geometry={placemark.coordinates}
+              modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
             />
           ))}
         </Map>
