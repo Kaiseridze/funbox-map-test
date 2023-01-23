@@ -11,7 +11,7 @@ import id from "../../Helpers/IdGenerator";
 import "./Sidebar.styles.scss";
 
 
-const Sidebar = () => {
+const Sidebar = ({mapCenter}: any) => {
   const dispatch = useAppDispatch();
   const [title, setTitle] = useState<string>("");
 
@@ -28,6 +28,7 @@ const Sidebar = () => {
         addPlacemark({
           title: title,
           id: id(),
+          coordinates: mapCenter
         })
       );
       setTitle("");
