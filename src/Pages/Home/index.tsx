@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { Container, Sidebar } from "../../Components";
 
