@@ -1,19 +1,30 @@
 import { useState } from "react";
+
+import { useAppDispatch } from "../../Store/Hooks/useAppDispatch";
+import { updatePlacemarkCoordinates } from "../../Store/Reducers/placemarkSlice";
+import { useAppSelector } from "../../Store/Hooks/useAppSelector";
+
 import { YMaps, Map, Placemark, Polyline } from "@pbe/react-yandex-maps";
 import { Container, Sidebar } from "../../Components";
-
-import { useAppSelector } from "../../Store/Hooks/useAppSelector";
 
 import "./Home.styles.scss";
 
 const Home = () => {
+  const dispatch = useAppDispatch();
   const { placemarks } = useAppSelector((state) => state.placemarks);
   const defaultCenter = [55.75, 37.57];
   const [mapCenter, setMapCenter] = useState(defaultCenter);
 
-  const handleMapMove = (evt: any) => {
-    const newCenter = evt.get("newCenter");
+  const handleMapMove = (e: any) => {
+    const newCenter = e.get("newCenter");
     setMapCenter(newCenter);
+  };
+
+  const onPointDrag = (e: any, index: number) => {
+    const placemarksArr = JSON.parse(JSON.stringify([...placemarks]));
+    const newCoords = e.get("target").geometry.getCoordinates();
+    placemarksArr[index].coordinates = newCoords;
+    dispatch(updatePlacemarkCoordinates(placemarksArr));
   };
 
   return (
@@ -30,8 +41,10 @@ const Home = () => {
           className="map"
           defaultState={{ center: [55.75, 37.57], zoom: 8 }}
         >
-          {placemarks.map((placemark) => (
+          {placemarks.map((placemark, index) => (
             <Placemark
+              onDrag={(e: any) => onPointDrag(e, index)}
+              onDragEnd={(e: any) => onPointDrag(e, index)}
               key={placemark.id}
               options={{
                 draggable: true,
