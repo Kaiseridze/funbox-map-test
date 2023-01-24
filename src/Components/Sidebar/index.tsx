@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
 import { Input } from "../../UI";
 import { RoadMap } from "../../Entities";
+import { ISidebar } from "./Sidebar.types";
 
 import { useAppDispatch } from "../../Store/Hooks/useAppDispatch";
 import { useAppSelector } from "../../Store/Hooks/useAppSelector";
@@ -11,7 +12,7 @@ import id from "../../Helpers/IdGenerator";
 import "./Sidebar.styles.scss";
 
 
-const Sidebar = ({mapCenter}: any) => {
+const Sidebar: FC<ISidebar> = ({mapCenter}) => {
   const dispatch = useAppDispatch();
   const [title, setTitle] = useState<string>("");
 
