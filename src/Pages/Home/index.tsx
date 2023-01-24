@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
+import { YMaps, Map, Placemark, Polyline } from "@pbe/react-yandex-maps";
 import { Container, Sidebar } from "../../Components";
 
 import { useAppSelector } from "../../Store/Hooks/useAppSelector";
@@ -45,6 +45,23 @@ const Home = () => {
               modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
             />
           ))}
+          {placemarks.map(
+            (line, index) =>
+              placemarks[index + 1] && (
+                <Polyline
+                  key={line.id}
+                  geometry={[
+                    line.coordinates,
+                    placemarks[index + 1].coordinates,
+                  ]}
+                  options={{
+                    strokeColor: "#000",
+                    strokeWidth: 3,
+                    strokeOpacity: 1,
+                  }}
+                />
+              )
+          )}
         </Map>
       </YMaps>
     </Container>
