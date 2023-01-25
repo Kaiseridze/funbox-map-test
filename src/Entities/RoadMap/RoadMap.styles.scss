@@ -1,16 +1,20 @@
+@import "../../Styles/vars.scss";
+
 .road-map {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid #000;
+  background-color: $item-color;
   border-radius: 5px;
 
   &__title {
+    color: $text-color;
     display: block;
     text-align: center;
   }
-  &__remove{
+  &__remove {
+    color: $text-color;
     cursor: pointer;
   }
 }

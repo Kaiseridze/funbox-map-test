@@ -1,5 +1,7 @@
+@import '../../Styles/vars.scss';
+
 .map {
   margin-left: 10px;
   width: 100%;
-  min-height: 100%;
+  height: $height-property;
 }

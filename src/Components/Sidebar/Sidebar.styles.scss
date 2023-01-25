@@ -1,14 +1,19 @@
+@import "../../Styles/vars.scss";
+
 .sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  border: 1px solid rgb(43, 43, 43);
+  border: 1px solid $border-color;
+  border-radius: 12px;
   padding: 20px;
   max-width: 300px;
-  height: calc(100vh - 70px);
+  height: $height-property;
 
   &__title {
+    color: $text-color;
+    text-align: center;
     font-size: 16px;
     font-weight: 600;
   }

@@ -72,7 +72,7 @@ const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
 
   return (
     <div className="sidebar">
-      <h1 className="sidebar__title">Добавьте новую точку</h1>
+      <h1 className="sidebar__title">Добавьте новую точку (Нажмите Enter)</h1>
       <form className="sidebar-form" onSubmit={onSubmit}>
         <Input onChange={onChangeValue} value={title} />
         <DragDropContext onDragEnd={onDragEnd}>
