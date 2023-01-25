@@ -4,6 +4,8 @@ import { useAppDispatch } from "../../Store/Hooks/useAppDispatch";
 import { useAppSelector } from "../../Store/Hooks/useAppSelector";
 import { updatePlacemarkState } from "../../Store/Reducers/placemarkSlice";
 
+import './InteractiveMap.styles.scss'
+
 const InteractiveMap = ({handleMapMove, defaultCenter}: any) => {
   const dispatch = useAppDispatch();
   const { placemarks } = useAppSelector((state) => state.placemarks);

@@ -3,7 +3,11 @@ import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 
 import { Input } from "../../UI";
 import { RoadMap } from "../../Entities";
+
 import { ISidebar } from "./Sidebar.types";
+import { IPlacemark } from "../../Store/Reducers/placemarkSlice/placemarkSlice.types";
+
+import id from "../../Helpers/IdGenerator";
 
 import { useAppDispatch } from "../../Store/Hooks/useAppDispatch";
 import { useAppSelector } from "../../Store/Hooks/useAppSelector";
@@ -13,9 +17,8 @@ import {
   updatePlacemarkState,
 } from "../../Store/Reducers/placemarkSlice";
 
-import id from "../../Helpers/IdGenerator";
 import "./Sidebar.styles.scss";
-import { IPlacemark } from "../../Store/Reducers/placemarkSlice/placemarkSlice.types";
+
 
 const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
   const dispatch = useAppDispatch();

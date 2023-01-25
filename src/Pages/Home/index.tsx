@@ -13,9 +13,9 @@ const Home = () => {
   };
 
   return (
-    <Container variant="m">
+    <Container display="flex" variant="m">
       <Sidebar mapCenter={mapCenter} />
-      <InteractiveMap handleMapMove={handleMapMove} defaultCenter={mapCenter}/>
+      <InteractiveMap handleMapMove={handleMapMove} defaultCenter={mapCenter} />
     </Container>
   );
 };
