@@ -18,7 +18,11 @@
   &.flex {
     display: flex;
     align-items: center;
+    @media (max-width: 575px) {
+      flex-direction: column;
+    }
   }
+  
   &.block {
     display: block;
   }

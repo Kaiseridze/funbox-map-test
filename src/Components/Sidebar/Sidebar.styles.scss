@@ -8,14 +8,40 @@
   border: 1px solid $border-color;
   border-radius: 12px;
   padding: 20px;
-  max-width: 300px;
+  max-width: 768px;
   height: $height-property;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: gray;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: darkslategray;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
 
   &__title {
     color: $text-color;
     text-align: center;
     font-size: 16px;
     font-weight: 600;
+  }
+
+  @media (max-width: 767px) {
+    max-height: $height-property-tablet;
+  }
+  @media (max-width: 575px) {
+    max-height: $height-property-mobile;
   }
 }
 

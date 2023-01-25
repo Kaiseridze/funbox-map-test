@@ -1,7 +1,15 @@
-@import '../../Styles/vars.scss';
+@import "../../Styles/vars.scss";
 
 .map {
-  margin-left: 10px;
+  padding: 10px;
   width: 100%;
   height: $height-property;
+  @media (max-width: 768px) {
+    max-width: 60%;
+  }
+  @media (max-width: 575px) {
+    max-width: 100%;
+    max-height: $height-property-mobile
+  }
 }
+

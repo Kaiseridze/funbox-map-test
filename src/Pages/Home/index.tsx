@@ -2,8 +2,6 @@ import { useState } from "react";
 import { MapEvent } from "yandex-maps";
 import { Container, Sidebar, InteractiveMap } from "../../Components";
 
-import "./Home.styles.scss";
-
 const Home = () => {
   const defaultCenter = [59.93431286622302, 30.31946594757369];
   const [mapCenter, setMapCenter] = useState(defaultCenter);

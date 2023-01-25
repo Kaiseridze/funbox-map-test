@@ -15,7 +15,12 @@
     text-align: center;
   }
   &__remove {
+    transition: .15s ease-in-out;
     display: block;
     cursor: pointer;
+
+    &:hover{
+      background: red;
+    }
   }
 }
