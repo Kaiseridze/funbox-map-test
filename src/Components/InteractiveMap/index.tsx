@@ -1,4 +1,7 @@
+import { FC } from "react";
 import { YMaps, Map, Placemark, Polyline } from "@pbe/react-yandex-maps";
+import { MapEvent } from "yandex-maps";
+import { IInteractiveMap } from "./InteractiveMap.types";
 
 import { useAppDispatch } from "../../Store/Hooks/useAppDispatch";
 import { useAppSelector } from "../../Store/Hooks/useAppSelector";
@@ -6,11 +9,11 @@ import { updatePlacemarkState } from "../../Store/Reducers/placemarkSlice";
 
 import './InteractiveMap.styles.scss'
 
-const InteractiveMap = ({handleMapMove, defaultCenter}: any) => {
+const InteractiveMap:FC<IInteractiveMap> = ({handleMapMove, defaultCenter}) => {
   const dispatch = useAppDispatch();
   const { placemarks } = useAppSelector((state) => state.placemarks);
 
-  const onPlacemarkDrag = (e: any, index: number) => {
+  const onPlacemarkDrag = (e: MapEvent, index: number) => {
     const placemarksArr = JSON.parse(JSON.stringify([...placemarks]));
     const newCoords = e.get("target").geometry.getCoordinates();
     placemarksArr[index].coordinates = newCoords;
