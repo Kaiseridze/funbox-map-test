@@ -17,12 +17,12 @@ const placemarkSlice = createSlice({
         (placemark) => placemark.id !== action.payload
       );
     },
-    updatePlacemarkCoordinates(state, action: PayloadAction<IPlacemark[]>) {
+    updatePlacemarkState(state, action: PayloadAction<IPlacemark[]>) {
       state.placemarks = action.payload;
     },
   },
 });
 
-export const { addPlacemark, removePlacemark, updatePlacemarkCoordinates } =
+export const { addPlacemark, removePlacemark, updatePlacemarkState } =
   placemarkSlice.actions;
 export default placemarkSlice.reducer;

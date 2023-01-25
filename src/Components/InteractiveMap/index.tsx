@@ -2,7 +2,7 @@ import { YMaps, Map, Placemark, Polyline } from "@pbe/react-yandex-maps";
 
 import { useAppDispatch } from "../../Store/Hooks/useAppDispatch";
 import { useAppSelector } from "../../Store/Hooks/useAppSelector";
-import { updatePlacemarkCoordinates } from "../../Store/Reducers/placemarkSlice";
+import { updatePlacemarkState } from "../../Store/Reducers/placemarkSlice";
 
 const InteractiveMap = ({handleMapMove, defaultCenter}: any) => {
   const dispatch = useAppDispatch();
@@ -12,7 +12,7 @@ const InteractiveMap = ({handleMapMove, defaultCenter}: any) => {
     const placemarksArr = JSON.parse(JSON.stringify([...placemarks]));
     const newCoords = e.get("target").geometry.getCoordinates();
     placemarksArr[index].coordinates = newCoords;
-    dispatch(updatePlacemarkCoordinates(placemarksArr));
+    dispatch(updatePlacemarkState(placemarksArr));
   };
 
   return (
