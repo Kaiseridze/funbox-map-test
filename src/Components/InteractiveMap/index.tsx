@@ -34,6 +34,7 @@ const InteractiveMap: FC<IInteractiveMap> = ({
         onBoundsChange={handleMapMove}
         className="map"
         defaultState={{ center: defaultCenter, zoom: 12 }}
+        defaultOptions={{ minZoom: 4}}
       >
         {placemarks.map((placemark, index) => (
           <Placemark
