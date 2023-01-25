@@ -7,9 +7,12 @@ import { useAppDispatch } from "../../Store/Hooks/useAppDispatch";
 import { useAppSelector } from "../../Store/Hooks/useAppSelector";
 import { updatePlacemarkState } from "../../Store/Reducers/placemarkSlice";
 
-import './InteractiveMap.styles.scss'
+import "./InteractiveMap.styles.scss";
 
-const InteractiveMap:FC<IInteractiveMap> = ({handleMapMove, defaultCenter}) => {
+const InteractiveMap: FC<IInteractiveMap> = ({
+  handleMapMove,
+  defaultCenter,
+}) => {
   const dispatch = useAppDispatch();
   const { placemarks } = useAppSelector((state) => state.placemarks);
 
@@ -34,13 +37,14 @@ const InteractiveMap:FC<IInteractiveMap> = ({handleMapMove, defaultCenter}) => {
       >
         {placemarks.map((placemark, index) => (
           <Placemark
-            onDrag={(e: any) => onPlacemarkDrag(e, index)}
+            onDrag={(e: MapEvent) => onPlacemarkDrag(e, index)}
             key={placemark.id}
             options={{
               draggable: true,
               hasBalloon: true,
             }}
             properties={{
+              iconContent: index + 1,
               hintContent: placemark.title,
               balloonContent: placemark.title,
             }}
