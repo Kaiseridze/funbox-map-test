@@ -4,7 +4,7 @@ import { Container, Sidebar, InteractiveMap } from "../../Components";
 import "./Home.styles.scss";
 
 const Home = () => {
-  const defaultCenter = [55.75, 37.57];
+  const defaultCenter = [59.93431286622302, 30.31946594757369];
   const [mapCenter, setMapCenter] = useState(defaultCenter);
 
   const handleMapMove = (e: any) => {

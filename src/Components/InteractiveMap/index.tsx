@@ -25,7 +25,7 @@ const InteractiveMap = ({handleMapMove, defaultCenter}: any) => {
       <Map
         onBoundsChange={handleMapMove}
         className="map"
-        defaultState={{ center: defaultCenter, zoom: 15 }}
+        defaultState={{ center: defaultCenter, zoom: 12 }}
       >
         {placemarks.map((placemark, index) => (
           <Placemark
