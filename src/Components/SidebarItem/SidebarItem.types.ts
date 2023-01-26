@@ -4,7 +4,7 @@ import {
 } from "@hello-pangea/dnd";
 
 
-export interface IRoadMap {
+export interface ISidebarItem {
   title: string;
   id: string;
   onClick: React.MouseEventHandler<HTMLImageElement>;

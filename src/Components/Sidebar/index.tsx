@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 
 import { Input } from "../../UI";
-import { RoadMap } from "../../Entities";
+import { SidebarItem } from "../../Components";
 
 import { ISidebar } from "./Sidebar.types";
 import { IPlacemark } from "../../Store/Reducers/placemarkSlice/placemarkSlice.types";
@@ -18,7 +18,6 @@ import {
 } from "../../Store/Reducers/placemarkSlice";
 
 import "./Sidebar.styles.scss";
-
 
 const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
   const dispatch = useAppDispatch();
@@ -86,7 +85,7 @@ const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
                 {placemarks.map((road, index: number) => (
                   <Draggable key={road.id} draggableId={road.id} index={index}>
                     {(provided) => (
-                      <RoadMap
+                      <SidebarItem
                         draggableProps={provided.draggableProps}
                         dragHandleProps={provided.dragHandleProps}
                         reference={provided.innerRef}

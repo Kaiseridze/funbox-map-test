@@ -1,10 +1,10 @@
 import { FC } from "react";
 import CrossSvg from "../../Assets/cross.svg";
-import { IRoadMap } from "./RoadMap.types";
+import { ISidebarItem } from "./SidebarItem.types";
 
 import "./RoadMap.styles.scss";
 
-const RoadMap: FC<IRoadMap> = ({
+const SidebarItem: FC<ISidebarItem> = ({
   title,
   onClick,
   reference,
@@ -29,4 +29,4 @@ const RoadMap: FC<IRoadMap> = ({
   );
 };
 
-export default RoadMap;
+export default SidebarItem;
