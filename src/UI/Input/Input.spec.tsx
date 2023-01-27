@@ -30,5 +30,5 @@ test("simulate user input", async () => {
   const input = screen.getByRole<HTMLInputElement>("textbox");
   await userEvent.type(input, "Hello, World!");
 
-  expect(input.value).toBe("Hello, World!");
+  expect(input).toHaveValue("Hello, World!");
 });
