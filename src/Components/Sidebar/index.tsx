@@ -3,7 +3,7 @@ import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 
 import { Input } from "../../UI";
 import { SidebarItem } from "../../Components";
-import { reorderList } from "../../Helpers/ReorderList";
+import reorderList from "../../Helpers/ReorderList";
 
 import { ISidebar } from "./Sidebar.types";
 
