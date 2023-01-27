@@ -3,9 +3,9 @@ import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 
 import { Input } from "../../UI";
 import { SidebarItem } from "../../Components";
+import { reorderList } from "../../Helpers/ReorderList";
 
 import { ISidebar } from "./Sidebar.types";
-import { IPlacemark } from "../../Store/Reducers/placemarkSlice/placemarkSlice.types";
 
 import id from "../../Helpers/IdGenerator";
 
@@ -44,18 +44,6 @@ const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
 
   const onRemove = (id: string) => {
     dispatch(removePlacemark(id));
-  };
-
-  const reorderList = (
-    list: IPlacemark[],
-    startIndex: number,
-    endIndex: number
-  ) => {
-    const result = [...list];
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-
-    return result;
   };
 
   const onDragEnd = (result: any) => {
