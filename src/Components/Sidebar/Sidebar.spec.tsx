@@ -47,8 +47,10 @@ const placemarks = [
   },
 ];
 
+const mockedSelector = jest.spyOn(reduxHooks, "useSelector")
+
 test("Renders Sidebar component without items", () => {
-  jest.spyOn(reduxHooks, "useSelector").mockReturnValue([]);
+  mockedSelector.mockReturnValue([]);
   render(<Sidebar mapCenter={[55.12, 55.12]} />);
   const mainBlock = screen.getByTestId("sidebar-test");
   const headerBlock = screen.getByText(/Добавьте/i);
@@ -57,7 +59,7 @@ test("Renders Sidebar component without items", () => {
 });
 
 test("Renders Sidebar component with items", () => {
-  jest.spyOn(reduxHooks, "useSelector").mockReturnValue(placemarks);
+  mockedSelector.mockReturnValue(placemarks);
   render(<Sidebar mapCenter={[55.12, 55.12]} />);
   const mainBlock = screen.getByTestId("sidebar-test");
   const headerBlock = screen.getByText(/Добавьте/i);
