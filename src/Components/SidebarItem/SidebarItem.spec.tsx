@@ -30,11 +30,12 @@ test("Renders SidebarItem component", () => {
 test("Remove SidebarItem component on dispatch", () => {
   const dispatch = jest.fn();
   mockedDispatch.mockReturnValue(dispatch);
+  const mockedRemoveAction = jest.spyOn(actions, "removePlacemark") as any; // I Can`t find a decision of this problem, so let`s be any
   render(
     <SidebarItem
-      title={"First placemark"}
-      id={"123"}
-      onClick={() => dispatch()}
+      title="First placemark"
+      id="123"
+      onClick={dispatch(mockedRemoveAction("123"))}
       reference={null}
     />
   );
@@ -42,4 +43,5 @@ test("Remove SidebarItem component on dispatch", () => {
 
   fireEvent.click(removeSvg);
   expect(dispatch).toHaveBeenCalledTimes(1);
+  expect(mockedRemoveAction).toHaveBeenCalledWith("123");
 });
