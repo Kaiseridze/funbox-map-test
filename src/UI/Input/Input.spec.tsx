@@ -25,3 +25,10 @@ test("Renders Input component without value", () => {
   expect(input.value).toBe("");
 });
 
+test("simulate user input", async () => {
+  render(<Input onChange={() => {}}/>);
+  const input = screen.getByRole<HTMLInputElement>("textbox");
+  await userEvent.type(input, "Hello, World!");
+
+  expect(input.value).toBe("Hello, World!");
+});
