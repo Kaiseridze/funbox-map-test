@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
+import { DropResult } from '@hello-pangea/dnd';
 
 import { Input } from "../../UI";
 import { SidebarItem } from "../../Components";
@@ -46,7 +47,7 @@ const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
     dispatch(removePlacemark(id));
   };
 
-  const onDragEnd = (result: any) => {
+  const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
 
     const items = reorderList(
