@@ -58,7 +58,7 @@ const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
   };
 
   return (
-    <div className="sidebar">
+    <div data-testid='sidebar-test' className="sidebar">
       <h1 className="sidebar__title">Добавьте новую точку (Нажмите Enter)</h1>
       <form className="sidebar-form" onSubmit={onSubmit}>
         <Input onChange={onChangeValue} value={title} />
@@ -70,7 +70,7 @@ const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
                 ref={provided.innerRef}
                 className="sidebar-list"
               >
-                {placemarks.map((road, index: number) => (
+                {placemarks?.map((road, index: number) => (
                   <Draggable key={road.id} draggableId={road.id} index={index}>
                     {(provided) => (
                       <SidebarItem
