@@ -9,6 +9,6 @@ export interface ISidebarItem {
   id: string;
   onClick: React.MouseEventHandler<HTMLImageElement>;
   reference: React.Ref<HTMLLIElement>;
-  draggableProps: DraggableProvidedDraggableProps;
-  dragHandleProps: DraggableProvidedDragHandleProps | null;
+  draggableProps?: DraggableProvidedDraggableProps;
+  dragHandleProps?: DraggableProvidedDragHandleProps | null;
 }

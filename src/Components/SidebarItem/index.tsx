@@ -2,7 +2,7 @@ import { FC } from "react";
 import CrossSvg from "../../Assets/cross.svg";
 import { ISidebarItem } from "./SidebarItem.types";
 
-import "./RoadMap.styles.scss";
+import "./SidebarItem.styles.scss";
 
 const SidebarItem: FC<ISidebarItem> = ({
   title,
@@ -16,12 +16,12 @@ const SidebarItem: FC<ISidebarItem> = ({
       {...draggableProps}
       {...dragHandleProps}
       ref={reference}
-      className="road-map"
+      className="sidebar-item"
     >
-      <span className="road-map__title">{title}</span>
+      <span className="sidebar-item__title">{title}</span>
       <img
         onClick={onClick}
-        className="road-map__remove"
+        className="sidebar-item__remove"
         src={CrossSvg}
         alt="remove"
       />

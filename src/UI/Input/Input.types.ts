@@ -1,6 +1,6 @@
 import React from "react";
 
 export interface IInput {
-  value: string;
+  value?: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
