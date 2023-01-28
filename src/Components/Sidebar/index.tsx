@@ -62,7 +62,7 @@ const Sidebar: FC<ISidebar> = ({ mapCenter }) => {
     <div data-testid='sidebar-test' className="sidebar">
       <h1 className="sidebar__title">Добавьте новую точку (Нажмите Enter)</h1>
       <form className="sidebar-form" onSubmit={onSubmit}>
-        <Input onChange={onChangeValue} value={title} />
+        <Input placeholder='Например: Точка 1' onChange={onChangeValue} value={title} />
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="droppable">
             {(provided) => (
