@@ -47,25 +47,27 @@ const placemarks = [
   },
 ];
 
-const mockedSelector = jest.spyOn(reduxHooks, "useSelector")
+const mockedSelector = jest.spyOn(reduxHooks, "useSelector");
 
-test("Renders Sidebar component without items", () => {
-  mockedSelector.mockReturnValue([]);
-  render(<Sidebar mapCenter={[55.12, 55.12]} />);
-  const mainBlock = screen.getByTestId("sidebar-test");
-  const headerBlock = screen.getByText(/Добавьте/i);
-  expect(mainBlock).toBeInTheDocument();
-  expect(headerBlock).toBeInTheDocument();
-});
+describe("Sidebar tests", () => {
+  it("Renders Sidebar component without items", () => {
+    mockedSelector.mockReturnValue([]);
+    render(<Sidebar mapCenter={[55.12, 55.12]} />);
+    const mainBlock = screen.getByTestId("sidebar-test");
+    const headerBlock = screen.getByText(/Добавьте/i);
+    expect(mainBlock).toBeInTheDocument();
+    expect(headerBlock).toBeInTheDocument();
+  });
 
-test("Renders Sidebar component with items", () => {
-  mockedSelector.mockReturnValue(placemarks);
-  render(<Sidebar mapCenter={[55.12, 55.12]} />);
-  const mainBlock = screen.getByTestId("sidebar-test");
-  const headerBlock = screen.getByText(/Добавьте/i);
-  const list = screen.getByRole("list");
- 
-  expect(mainBlock).toBeInTheDocument();
-  expect(headerBlock).toBeInTheDocument();
-  expect(list).toBeInTheDocument();
+  it("Renders Sidebar component with items", () => {
+    mockedSelector.mockReturnValue(placemarks);
+    render(<Sidebar mapCenter={[55.12, 55.12]} />);
+    const mainBlock = screen.getByTestId("sidebar-test");
+    const headerBlock = screen.getByText(/Добавьте/i);
+    const list = screen.getByRole("list");
+
+    expect(mainBlock).toBeInTheDocument();
+    expect(headerBlock).toBeInTheDocument();
+    expect(list).toBeInTheDocument();
+  });
 });
