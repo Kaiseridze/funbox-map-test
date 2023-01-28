@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import reorderList from "../ReorderList";
 
-test("Reorder list", () => {
+test("Reorder list in array of objects", () => {
   const startIndex = 0;
   const endIndex = 3;
 
