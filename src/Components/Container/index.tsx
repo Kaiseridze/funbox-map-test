@@ -8,7 +8,7 @@ const Container: FC<IContainer> = ({
   children,
   display = "block",
 }) => {
-  return <div className={`container ${variant} ${display}`}>{children}</div>;
+  return <div data-testid='container-test' className={`container ${variant} ${display}`}>{children}</div>;
 };
 
 export default Container;
