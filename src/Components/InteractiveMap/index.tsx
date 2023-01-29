@@ -36,7 +36,7 @@ const InteractiveMap: FC<IInteractiveMap> = ({
         defaultState={{ center: defaultCenter, zoom: 12 }}
         defaultOptions={{ minZoom: 4}}
       >
-        {placemarks.map((placemark, index) => (
+        {placemarks?.map((placemark, index) => (
           <Placemark
             onDrag={(e: MapEvent) => onPlacemarkDrag(e, index)}
             key={placemark.id}
@@ -53,7 +53,7 @@ const InteractiveMap: FC<IInteractiveMap> = ({
             modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
           />
         ))}
-        {placemarks.map(
+        {placemarks?.map(
           (line, index) =>
             placemarks[index + 1] && (
               <Polyline
